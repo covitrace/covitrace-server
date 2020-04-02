@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  postgresql:
+    image: postgres
+    container_name: postgresql
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    restart: always
+
+  covitrace:
+    build: .
+    image: covitrace/covitrace:latest
+    container_name: covitrace
+    environment:
+      DB_NAME: covitrace
+      DB_USER: covitrace
+      DB_PASS: ${COVITRACE_PASSWORD}
+      HMAC_SECRET: ${HMAC_SECRET}
+      COVITRACE_DEV: 1
+    depends_on:
+      - postgresql
+    ports:
+      - 80:8000
+    restart: always

@@ -1,0 +1,10 @@
+data/ssldata/privkey.pem
+data/ssldata/certificate.pem
+data/ssldata/csr.pem
+data/postgres
+data/cache
+venv
+
+**/*~
+**/*.swp
+**/*.swo
