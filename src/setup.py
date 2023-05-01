@@ -9,7 +9,7 @@ setup(
     #packages = ['covitrace'],
     #scripts = ['covitrace_api'],
     install_requires = [
-        'Flask == 1.1.1',
+        'Flask == 2.3.2',
         'psycopg2-binary == 2.8.4',
         'gunicorn == 20.0.4',
     ],
